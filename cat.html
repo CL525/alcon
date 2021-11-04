@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="UTF-8">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="viewport" content="width=device-width,height=device-height,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<title></title>
+		<link rel="stylesheet" href="lib/common.css" />
+		<style>
+			body {
+				background-color: rgb(185, 227, 245);
+				overflow: hidden;
+				width: 100vw;
+				height: 100vh;
+				background-image: url(static/cat/bj.jpg);
+				background-size: 100%;
+				background-position: bottom;
+				background-repeat: no-repeat;
+			}
+			
+			.c_bj {
+				display: block;
+				width: 100%;
+			}
+
+			.c_con_0 {
+				width: 2.5rem;
+				height: 2.8rem;
+				left: 1.56rem;
+				bottom: 8.8rem;
+				z-index: 2;
+			}
+
+			.c_con_1 {
+				width: 2.5rem;
+				height: 2.8rem;
+				left: 4.1rem;
+				bottom: 8.7rem;
+				z-index: 2;
+			}
+
+			.c_con_2 {
+				width: 2.6rem;
+				height: 2.7rem;
+				left: 1.56rem;
+				bottom: 5.96rem;
+				z-index: 2;
+			}
+
+			.c_con_3 {
+				width: 2.7rem;
+				height: 2.2rem;
+				left: 4.26rem;
+				bottom: 6.5rem;
+				z-index: 2;
+			}
+
+			.c_con_4 {
+				width: 2.5rem;
+				height: 2.52rem;
+				left: 3rem;
+				bottom: 3.4rem;
+				z-index: 2;
+			}
+			
+			.c_productRelatedBj {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 3;
+			}
+			
+			.c_productRelatedContent {
+				width: 6.5rem;
+				border-radius: 0.16rem;
+				background: rgba(0, 0, 0, 0.4);
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 40;
+				transform: translate(-50%, -50%);
+				height: 60vh;
+			}
+			
+			.c_productTxtIcon {
+				display: block;
+				width: 2.98rem;
+				margin: 0.4rem auto 0rem;
+			}
+
+			.c_productList{
+				height: 80%;
+				overflow-y: auto;
+				margin-top: 0.32rem;
+			}
+			
+			.c_whiteBtn {
+				width: 4.2rem;
+				background: #fff;
+				border-radius: 0.9rem;
+				line-height: 0.6rem;
+				color: rgb(77, 94, 112);
+				text-align: center;
+				padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+			}
+			
+			.c_courseBj {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 6;
+			}
+			
+			.c_courseContentBox {
+				width: 6.5rem;
+				height: calc(100% - 2.86rem);
+				border-radius: 0.16rem;
+				background: #FFFFFF;
+				position: fixed;
+				left: 50%;
+				top: 1.2rem;
+				z-index: 70;
+				transform: translate(-50%, 0%);
+			}
+			.c_courseContent{
+				width: 92%;
+				margin: auto;
+				color: rgb(77, 94, 112);
+				line-height: 0.45rem;
+				font-weight: 500;
+				font-size: 0.28rem;
+				overflow-y: auto;
+				height: calc(100% - 2.46rem);
+			}
+			
+			.c_greyBtn {
+				width: 4.8rem;
+				height: 0.9rem;
+				background: rgba(245, 246, 248);
+				border-radius: 0.9rem;
+				line-height: 0.9rem;
+				color: rgb(77, 94, 112);
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body class="flex">
+		<img class="c_yun" src="static/cat/yun1.png" />
+		<img class="c_bb" src="static/cat/bb.png" />
+		<div class="c_con_0 posiF"></div>
+		<div class="c_con_1 posiF"></div>
+		<div class="c_con_2 posiF"></div>
+		<div class="c_con_3 posiF"></div>
+		<div class="c_con_4 posiF" onclick="i18n.message.show('.c_productRelated')"></div>
+
+		<div class="contentBox">
+			<div class="c_productRelated dn">
+				<div class="c_productRelatedBj" onclick="i18n.message.hide('.c_productRelated')"></div>
+				<div class="c_productRelatedContent f32 fb">
+					<div class="c_productTxtIcon">
+						<img style="display:block;width:100%;height:auto;" src="static/cat/product_txt.png" />
+					</div>
+					<div class="c_productList">
+						<div class="c_whiteBtn m0 mb36" title="课程一">课程一课程一课程一课程一课程一课程一</div>
+						<div class="c_whiteBtn m0 mb36" title="课程二">课程二</div>
+						<div class="c_whiteBtn m0 mb36" title="课程三">课程三</div>
+						<div class="c_whiteBtn m0 mb36" title="课程一">课程一</div>
+						<div class="c_whiteBtn m0 mb36" title="课程二">课程二</div>
+						<div class="c_whiteBtn m0 mb36" title="课程三">课程三</div>
+						<div class="c_whiteBtn m0 mb36" title="课程一">课程一</div>
+						<div class="c_whiteBtn m0 mb36" title="课程二">课程二</div>
+						<div class="c_whiteBtn m0 mb36" title="课程三">课程三</div>
+						<div class="c_whiteBtn m0 mb36" title="课程一">课程一</div>
+						<div class="c_whiteBtn m0 mb36" title="课程二">课程二</div>
+						<div class="c_whiteBtn m0 mb36" title="课程三">课程三</div>
+						<div class="c_whiteBtn m0 mb36" title="课程一">课程一</div>
+						<div class="c_whiteBtn m0 mb36" title="课程二">课程二</div>
+						<div class="c_whiteBtn m0 mb36" title="课程三">课程三</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="c_course dn">
+				<div class="c_courseBj" onclick="i18n.message.hide('.c_course')"></div>
+				<div class="c_courseContentBox f32 fb">
+					<div class="c_greyBtn m0 mb36 mt80">课程一</div>
+					<div class="c_courseContent">
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+						容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+						项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="lib/comon.js"></script>
+	<script>
+		$('.c_btnPlt').click(function() {
+			console.log('btnPlt')
+		});
+		$('.c_btnVid').click(function() {
+			console.log('btnVid')
+		});
+		$('.c_btnUsl').click(function() {
+			console.log('btnUsl')
+		});
+		$('.c_btnZ').click(function() {
+			console.log('btnZ')
+		});
+
+		$('.c_whiteBtn').click(function(e) {
+			var title = e.currentTarget.title;
+			i18n.message.show('.c_course');
+			$('.c_productRelated').hide();
+		});
+	</script>
+
+</html>

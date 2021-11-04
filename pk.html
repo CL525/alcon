@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="UTF-8">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="viewport" content="width=device-width,height=device-height,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<title></title>
+		<link rel="stylesheet" href="lib/common.css" />
+		<style>
+			body {
+				overflow: hidden;
+				width: 100vw;
+				height: 100vh;
+				background-image: url(static/pk/bj.jpg);
+				background-size: auto 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			
+			.c_header {
+				width: calc(100% - 0.4rem);
+				position: fixed;
+				left: 0.2rem;
+				top: 0.44rem;
+				z-index: 19;
+			}
+			
+			.c_pk {
+				width: calc(100% - 0.4rem);
+				height: calc(100% - 0.48rem);
+				border-radius: 0.24rem;
+				background: rgba(0, 0, 0, 0.4);
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 7;
+				transform: translate(-50%, -50%);
+			}
+			
+			.c_userNameL {
+				left: 0.94rem;
+				top: 0;
+				line-height: 0.32rem;
+			}
+			
+			.c_userNameR {
+				right: 0.94rem;
+				top: 0.2rem;
+				line-height: 0.32rem;
+			}
+			
+			.c_workL {
+				left: 0;
+				bottom: 0.24rem;
+				width: 1.06rem;
+				text-align: center;
+			}
+			
+			.c_workR {
+				right: 0;
+				bottom: 0rem;
+				width: 1.06rem;
+				text-align: center;
+			}
+			
+			.c_scoreL {
+				left: 1.1rem;
+				bottom: 0.2rem;
+				width: 1.28rem;
+				line-height: 0.72rem;
+				text-align: center;
+			}
+			
+			.c_scoreR {
+				right: 1.1rem;
+				bottom: 0rem;
+				width: 1.28rem;
+				line-height: 0.7rem;
+				text-align: center;
+			}
+			
+			.c_countTime {
+				width: 1.12rem;
+				height: 1.12rem;
+				border-radius: 100%;
+				background: #FFFFFF;
+				padding: 0.04rem;
+				margin: 0.68rem auto 0;
+			}
+			
+			.c_countTime div {
+				width: 1rem;
+				height: 1rem;
+				border-radius: 100%;
+				border: 0.06rem solid rgb(124, 195, 223);
+				text-align: center;
+				line-height: 1rem;
+				color: rgb(124, 195, 223);
+			}
+			
+			.c_pageNum {
+				position: absolute;
+				left: 0.64rem;
+				bottom: 0.52rem;
+			}
+			
+			.c_answerBox {
+				width: 100%;
+				height: calc(100% - 5.42rem);
+				overflow-y: scroll;
+			}
+			
+			.c_whiteBtn {
+				box-sizing: border-box;
+				width: 4.9rem;
+				min-height: 0.96rem;
+				background: #fff;
+				border-radius: 0.96rem;
+				line-height: 0.48rem;
+				color: rgb(77, 94, 112);
+				text-align: center;
+				padding: 0.16rem 0.48rem;
+			}
+			
+			.c_selectBtn,
+			.c_greenBtn {
+				background-color: rgb(112, 216, 160);
+				color: #FFFFFF;
+				background-size: 0.48rem;
+				background-repeat: no-repeat;
+				background-position: 0.44rem center;
+			}
+			
+			.c_greenBtn {
+				background-image: url(static/pk/right.png);
+				padding: 0.16rem 0.48rem 0.16rem 1rem;
+			}
+			
+			.c_redBtn {
+				background-color: rgb(247, 92, 92);
+				color: #FFFFFF;
+				background-image: url(static/pk/fail.png);
+				background-size: 0.48rem;
+				background-repeat: no-repeat;
+				background-position: 0.44rem center;
+				padding: 0.16rem 0.48rem 0.16rem 1rem;
+			}
+			
+			.c_blueBtn {
+				width: 4.12rem;
+				height: 0.96rem;
+				text-align: center;
+				line-height: 0.96rem;
+				border-radius: 0.96rem;
+				background: rgb(124, 195, 223);
+				box-shadow: 0.06rem 0.04rem 0 0 rgb(139, 222, 242);
+				margin: 0.64rem auto 0;
+			}
+			
+			.c_yellowBtn {
+				width: 2.64rem;
+				height: 0.96rem;
+				text-align: center;
+				line-height: 0.96rem;
+				border-radius: 0.96rem;
+				background: rgb(254, 162, 51);
+				box-shadow: 0.06rem 0.04rem 0 0 rgb(224, 138, 45);
+				margin: 0.64rem auto 0;
+			}
+			
+			.c_res {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 7;
+				width: 6.46rem;
+				transform: translate(-50%, -50%);
+			}
+			
+			.c_resContent {
+				width: 100%;
+				border-radius: 0.2rem;
+				background: rgba(0, 0, 0, 0.4);
+				padding-top: 0.78rem;
+				padding-bottom: 0.36rem;
+			}
+			
+			.c_winTitle {
+				width: 3.02rem;
+				position: absolute;
+				left: 1.72rem;
+				top: -0.2rem;
+				z-index: 2;
+			}
+			
+			.c_crown {
+				display: block;
+				width: 0.58rem;
+				position: absolute;
+				z-index: 2;
+				left: 0.12rem;
+				top: -0.28rem;
+			}
+			
+			.c_portrait {
+				width: 0.82rem;
+				height: 0.82rem;
+			}
+			
+			.c_line {
+				width: 3.74rem;
+				height: 0.2rem;
+				margin: 0.48rem 0.14rem 0;
+			}
+			
+			.c_resUserNameL,
+			.c_resUserNameR {
+				width: 0.82rem;
+				text-align: center;
+				line-height: 0.46rem;
+			}
+			
+			.c_resWorkL {
+				left: 0;
+				bottom: 0.2rem;
+				width: 1rem;
+				text-align: center;
+			}
+			
+			.c_resWorkR {
+				right: 0;
+				bottom: 0rem;
+				width: 1rem;
+				text-align: center;
+			}
+			
+			.c_resUserNameL {
+				left: 0.86rem;
+				top: -0.1rem;
+			}
+			
+			.c_resUserNameR {
+				right: 0.86rem;
+				top: 0.08rem;
+			}
+			
+			.c_resScoreL {
+				left: 0.8rem;
+				bottom: 0.18rem;
+				width: 1.28rem;
+				line-height: 0.64rem;
+				text-align: center;
+			}
+			
+			.c_resScoreR {
+				right: 0.8rem;
+				bottom: 0rem;
+				width: 1.28rem;
+				line-height: 0.64rem;
+				text-align: center;
+			}
+			
+			.c_resWin {
+				display: block;
+				width: 2.34rem;
+			}
+			
+			.c_resLost {
+				display: block;
+				width: 2.6rem;
+			}
+			
+			.c_blueBtn1 {
+				width: 3.32rem;
+				height: 0.96rem;
+				text-align: center;
+				line-height: 0.96rem;
+				background: rgb(124, 195, 223);
+				border-radius: 0.96rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="c_header flex flexAlignC f30 c_fff">
+			<img class="c_goBack" src="static/pk/back.png" style="width: 0.24rem; padding: 0.2rem 0.24rem 0.2rem 0.2rem;" />
+			<div class="c_userName flexGrow1">小甜豆...</div>
+			<img src="static/pk/share.png" style="width: 0.34rem; padding: 0.2rem 0.28rem;" />
+		</div>
+		<!--pk答题-->
+		<div class="c_pk f32 fb">
+			<div class="mt130 c_fff f24 posiR">
+				<img class="db wd100" src="static/pk/vs.png" />
+				<div class="c_userNameL posiA">小甜豆</div>
+				<div class="c_workL posiA">ECP</div>
+				<div class="c_scoreL f44 fb posiA">100</div>
+				<div class="c_userNameR posiA">小豆豆</div>
+				<div class="c_workR posiA">销售</div>
+				<div class="c_scoreR f44 fb posiA">100</div>
+			</div>
+			<div class="c_countTime">
+				<div class="f38 fb">16</div>
+			</div>
+			<div class="c_answerBox">
+				<div class="c_title texC c_fff f30 mt44">问题问题问题问题问题问题问题问题问题问问题问题问题问题问题问题问题问题问题问问题问题问题问题问题问题问题问题问题问题</div>
+				<div class="c_answer">
+					<div class="c_select c_whiteBtn c_greenBtn m0 mt68 flex flexAlignC flexJustifyC">答案一答案一答案一答案一</div>
+					<div class="c_select c_whiteBtn c_redBtn m0 mt12 flex flexAlignC flexJustifyC">答案二</div>
+					<div class="c_select c_whiteBtn c_selectBtn m0 mt12 flex flexAlignC flexJustifyC">答案三</div>
+					<div class="c_select c_whiteBtn m0 mt12 flex flexAlignC flexJustifyC">答案四</div>
+				</div>
+				<div class="c_pkBtn c_blueBtn f48 fb c_fff">提<span class="ml24"></span>交</div>
+			</div>
+			<div class="c_fff f28 c_pageNum">8/10</div>
+		</div>
+		<!--pk结果-->
+		<div class="c_res c_fff dn">
+			<div class="c_resContent posiR">
+				<img class="c_winTitle" src="static/pk/winTitle.png" />
+				<div class="c_fff f24 posiR">
+					<img class="db wd100" src="static/pk/vs.png" />
+					<div class="c_resUserNameL posiA">小甜豆</div>
+					<div class="c_resWorkL posiA">ECP</div>
+					<div class="c_resScoreL f44 fb posiA">100</div>
+					<div class="c_resUserNameR posiA">小豆豆</div>
+					<div class="c_resWorkR posiA">销售</div>
+					<div class="c_resScoreR f44 fb posiA">100</div>
+				</div>
+				<!--<div class="posiR ml40 mr40 flex">
+					<img class="c_crown" src="static/pk/crown.png" />
+					<img class="c_portrait" src="static/pk/portrait.png" />
+					<img class="c_line" src="static/pk/winLine.png" />
+					<img class="c_portrait" src="static/pk/portrait.png" />
+					<div class="c_resUserNameL f24 posiA">小甜豆</div>
+					<div class="c_resScoreL f36 fb posiA">80</div>
+					<div class="c_resUserNameR f24 posiA">小甜豆</div>
+					<div class="c_resScoreR f36 fb posiA">60</div>
+				</div>-->
+				<div class="c_resIcon posiR">
+					<img class="c_resLost m0 mt52" src="static/pk/win.png" />
+					<img class="db posiA" style="width: 6.3rem; left: 50%; top: 50%; z-index: -1; transform: translate(-50%, -50%);" src="static/pk/lightBj.png" />
+				</div>
+				<div class="c_resTxt f32 fb m0 texC mt46">
+					<div>恭喜你!</div>
+					<div class="mt6">机智过人，挑战成功</div>
+				</div>
+				<div class="c_resPeaAdd c_blueBtn1 f32 m0 mt50">甜豆+10</div>
+				<div class="c_resAnswerTxt f30 texC mt40">本次共答对10题</div>
+			</div>
+			<div class="f44 fb flex mt54">
+				<div class="c_yellowBtn c_goBack" style="margin-top: 0;">继续挑战</div>
+				<div class="c_blueBtn" style="width: 2.64rem; margin-top: 0;">分享结果</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="lib/comon.js"></script>
+	<script>
+		$('.c_goBack').click(function() {
+			history.back();
+		});
+
+		//选择答案
+		$('.c_select').click(function(e) {
+
+		});
+
+		//提交答案
+		$('.c_pkBtn').click(function(e) {
+			i18n.message.hide('.c_pk');
+			showResMessage({
+				name: '小甜豆',
+				my_scort: '800',
+				work: 'ECP',
+				friend_name: '小豆豆',
+				friend_scort: '600',
+				friend_work: '销售',
+				is_win: 'true',
+				pea: '20',
+				answer_num: '10'
+			});
+		});
+
+		//显示pk结果弹窗
+		function showResMessage(param) {
+			//			param = param || {
+			//				name: '小甜豆',
+			//				my_scort: '800',
+			//				work: 'ECP',
+			//				friend_name: '小豆豆',
+			//				friend_scort: '600',
+			//				friend_work: '销售',
+			//				is_win: 'true',
+			//				pea: '20',
+			//				answer_num: '10'
+			//			}
+			var winTitleSrc = 'static/pk/lostTitle.png';
+			var c_crownDomDisplay = 'none';
+			var cLineSrc = 'static/pk/lostLine.png';
+			var resTxt = '<div>很遗憾~</div><div class="mt6">距离胜利就差一丢丢</div>';
+			var resIcon = '<img class="c_resWin m0 mt46" src="static/pk/lost.png" />'
+			if(param.is_win == 'true') {
+				winTitleSrc = 'static/pk/winTitle.png';
+				c_crownDomDisplay = 'block';
+				cLineSrc = 'static/pk/winLine.png';
+				resTxt = '<div>恭喜你!</div><div class="mt6">机智过人，挑战成功</div>';
+				resIcon = '<img class="c_resLost m0 mt52" src="static/pk/win.png" /><img class="db posiA" style="width: 6.3rem; left: 50%; top: 50%; z-index: -1; transform: translate(-50%, -50%);" src="static/pk/lightBj.png" />';
+			}
+
+			$('.c_resWorkL').html(param.work);
+			$('.c_resWorkR').html(param.friend_work);
+			$('.c_resUserNameL').html(param.name);
+			$('.c_resUserNameR').html(param.friend_name);
+			$('.c_resScoreL').html(param.my_scort);
+			$('.c_resScoreR').html(param.friend_scort);
+			$('.c_resPeaAdd').html('甜豆+' + param.pea);
+			$('.c_resAnswerTxt').html('本次共答对' + param.answer_num + '题');
+			$('.c_winTitle')[0].setAttribute('src', winTitleSrc);
+			//			$('.c_crown')[0].style.display = c_crownDomDisplay;
+			//			$('.c_line')[0].setAttribute('src', cLineSrc);
+			$('.c_resTxt')[0].innerHTML = resTxt;
+			$('.c_resIcon')[0].innerHTML = resIcon;
+			i18n.message.show('.c_res');
+		}
+	</script>
+
+</html>

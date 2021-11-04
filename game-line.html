@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="UTF-8">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="viewport" content="width=device-width,height=device-height,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="screen-orientation" content="portrait">
+		<meta name="x5-orientation" content="portrait">
+		<title></title>
+		<link rel="stylesheet" href="lib/common.css" />
+		<style>
+			.c_bj {
+				display: block;
+				width: 100%;
+				height: 23.44rem;
+			}
+			
+			.c_guanka {
+				display: block;
+				width: 1.4rem;
+				position: absolute;
+				z-index: 2;
+			}
+			
+			.c_levelBtn {
+				display: block;
+				width: 0.68rem;
+				height: 0.8rem;
+				background-size: 100%;
+				background-repeat: no-repeat;
+				font-size: 0.24rem;
+				font-weight: bold;
+				font-family: muyao;
+				position: absolute;
+				z-index: 3;
+			}
+			
+			.c_levelBtn div {
+				width: 0.64rem;
+				height: 0.64rem;
+				text-align: center;
+				line-height: 0.64rem;
+			}
+			
+			.c_header {
+				position: fixed;
+				left: 0.16rem;
+				top: 0.8rem;
+				z-index: 6;
+				width: 7.21rem;
+				height: 0.73rem;
+				background-image: url(static/game-line/header_bj.png);
+				background-size: 100%;
+				background-repeat: no-repeat;
+			}
+			
+			.c_goBack {
+				position: absolute;
+				z-index: 2;
+				width: 0.64rem;
+				height: 0.72rem;
+			}
+			
+			.c_portrait {
+				display: block;
+				width: 0.42rem;
+				height: 0.6rem;
+				position: absolute;
+				left: 0.92rem;
+				top: 0.06rem;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			
+			.c_userName,
+			.c_peaNum {
+				position: absolute;
+				left: 1.54rem;
+				top: 0.16rem;
+				width: 0.8rem;
+				height: 0.4rem;
+				text-align: center;
+				line-height: 0.4rem;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				word-break: break-all;
+			}
+			
+			.c_peaNum {
+				width: 1rem;
+				left: 4.1rem;
+			}
+			
+			.c_exchange {
+				width: 0.8rem;
+				height: 0.5rem;
+				position: absolute;
+				left: 5.1rem;
+				top: 0.1rem;
+			}
+			
+			.c_needKnow {
+				width: 1.3rem;
+				height: 0.6rem;
+				position: absolute;
+				left: 6rem;
+				top: 0.06rem;
+			}
+			
+			.c_exchangeMessageBj {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0%;
+				top: 0%;
+				z-index: 4;
+			}
+			
+			.c_exchangeMessageContent {
+				width: 6.5rem;
+				border-radius: 0.16rem;
+				background: rgba(0, 0, 0, 0.4);
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				z-index: 5;
+				transform: translate(-50%, -50%);
+			}
+			
+			.c_exchangeMessageClose {
+				position: absolute;
+				top: 0.32rem;
+				right: 0.24rem;
+				width: 0.64rem;
+				height: 0.64rem;
+			}
+			
+			.c_peabox {
+				display: block;
+				width: 3.36rem;
+				height: 1.34rem;
+			}
+			
+			.c_peaMoney {
+				display: block;
+				width: 4.08rem;
+			}
+			
+			.c_peaboxVal {
+				position: absolute;
+				left: 1.2rem;
+				top: 0.24rem;
+				z-index: 2;
+				width: 1.76rem;
+				height: 0.76rem;
+				line-height: 0.76rem;
+				text-align: center;
+			}
+			
+			.c_peaMoneyValL,
+			.c_peaMoneyValR {
+				position: absolute;
+				left: 0.72rem;
+				top: 0.14rem;
+				z-index: 2;
+				width: 0.84rem;
+				height: 0.48rem;
+				line-height: 0.48rem;
+				text-align: center;
+			}
+			
+			.c_peaMoneyValR {
+				left: 3.06rem;
+			}
+			
+			.c_blueBtn {
+				width: 3.26rem;
+				height: 0.96rem;
+				text-align: center;
+				line-height: 0.96rem;
+				border-radius: 0.96rem;
+				background: rgb(124, 195, 223);
+				box-shadow: 0.06rem 0.04rem 0 0 rgb(139, 222, 242);
+				margin: 0.36rem auto 0.92rem;
+			}
+			
+			.c_whiteOpacityBtn {
+				width: 4.46rem;
+				height: 0.8rem;
+				box-sizing: border-box;
+				border: 0.04rem solid #FFFFFF;
+				background-color: rgb(0, 0, 0, 0.1);
+				border-radius: 0.8rem;
+			}
+			
+			.c_whiteOpacityBtnChild {
+				width: 100%;
+				height: 100%;
+				line-height: 0.72rem;
+			}
+			
+			.c_needKnowMessageContent {
+				position: fixed;
+				left: 50%;
+				bottom: calc((100% - 12.5rem) / 2);
+				z-index: 9;
+				transform: translate(-50%, 0%);
+				width: 6.44rem;
+			}
+			
+			.c_needKnowTitle {
+				display: block;
+				width: 3.08rem;
+				z-index: 2;
+				top: -1rem;
+				left: 1.68rem;
+			}
+			
+			.c_needKnowMessageClose {
+				display: block;
+				width: 0.64rem;
+				height: 0.64rem;
+				padding: 0.3rem 0.34rem;
+				top: 0;
+				right: 0;
+				z-index: 3;
+			}
+			
+			.c_needKnowMessageText {
+				padding: 0.2rem 0.56rem;
+				box-sizing: border-box;
+				width: 100%;
+				height: 8.2rem;
+				left: 0;
+				top: 0.4rem;
+				z-index: 2;
+				color: rgb(122, 106, 86);
+				overflow-y: scroll;
+			}
+			
+			.c_needKnowMessageBtn {
+				width: 2rem;
+				height: 0.6rem;
+				text-align: center;
+				line-height: 0.6rem;
+				border-radius: 0.6rem;
+				background: rgb(124, 195, 223);
+				box-shadow: 0.04rem 0.04rem 0 0 rgb(139, 222, 242);
+				left: 2.2rem;
+				bottom: 0.4rem;
+				z-index: 3;
+			}
+			
+			.c_areaItemL {
+				width: 1.5rem;
+				line-height: 0.8rem;
+			}
+			
+			.c_selectArrow {
+				display: block;
+				width: 0.34rem;
+				height: 0.24rem;
+				padding: 0.24rem 0.3rem 0.24rem 0;
+				right: 0;
+				z-index: 2;
+			}
+			
+			.c_idInfoSelect img {
+				display: block;
+				width: 0.36rem;
+				height: 0.36rem;
+				right: 0.26rem;
+				top: 0.18rem;
+			}
+			
+			.c_invitePkSuccessMessage {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 30;
+				width: 100%;
+				height: 100%;
+				background: rgb(0, 0, 0, 0.4);
+			}
+			
+			.c_pkL,
+			.c_pkR {
+				display: block;
+				width: 4.5rem;
+				height: 1.62rem;
+			}
+			
+			.c_pkVs {
+				display: block;
+				width: 1.26rem;
+				transform: translate(-50%, -50%);
+				left: 50%;
+				top: 50%;
+			}
+		</style>
+	</head>
+
+	<body class="">
+		<div class="c_header c_fff">
+			<div class="c_goBack"></div>
+			<div class="c_portrait">
+				<img class="db wd100" src="static/game-line/portrait.png" />
+			</div>
+			<div class="c_userName f24">海海啊哈哈</div>
+			<div class="c_peaNum">999</div>
+			<div class="c_exchange"></div>
+			<div class="c_needKnow" onclick="i18n.message.show('.c_needKnowMessage')"></div>
+		</div>
+		<div id="c_gameLine" class="posiR">
+			<img class="c_bj" src="static/game-line/bj.png" />
+			<img class="c_guanka" style="left: 1.72rem; top: 17.2rem;" src="static/game-line/11_20.png" />
+			<img class="c_guanka" style="left: 2.26rem; top: 14.16rem;" src="static/game-line/21_35.png" />
+			<img class="c_guanka" style="left: 3.9rem; top: 8.3rem;" src="static/game-line/36_50.png" />
+		</div>
+		<img class="c_yun" src="static/cat/yun1.png" />
+		<img class="c_bb" src="static/cat/bb.png" />
+		<!--兑换弹窗-->
+		<div class="c_exchangeMessage dn">
+			<div class="c_exchangeMessageContent c_fff">
+				<img class="c_exchangeMessageClose" src="static/game-line/close.png" onclick="i18n.message.hide('.c_exchangeMessage')" />
+				<div class="posiR ml120 mt84" title="">
+					<img class="c_peabox" src="static/game-line/peabox.png" />
+					<div class="c_peaboxVal f30 fb"></div>
+				</div>
+				<div class="c_exchangeRate posiR ml120 mt52" title="">
+					<img class="c_peaMoney" src="static/game-line/peaMoney.png" />
+					<div class="c_peaMoneyValL f24 fb"></div>
+					<div class="c_peaMoneyValR f24 fb"></div>
+				</div>
+				<div class="c_exchangeAgainTxt f32 fb m0 texC mt36">
+					<div>恭喜你!</div>
+					<div class="mt6">兑换成功</div>
+				</div>
+				<div class="c_exchangeMessageBtn c_blueBtn f46 fb">立即兑换</div>
+			</div>
+		</div>
+		<!--玩家需知弹窗-->
+		<div class="c_needKnowMessage dn">
+			<div class="c_needKnowMessageContent c_fff">
+				<img class="posiA c_needKnowTitle" src="static/game-line/needKnowTitle.png" />
+				<img class="db wd100" class="c_needKnowMessageBj" src="static/game-line/needknowBj.png" />
+				<img class="posiA c_needKnowMessageClose" src="static/game-line/closeOrange.png" onclick="i18n.message.hide('.c_needKnowMessage')" />
+				<!--玩家需知规则-->
+				<div class="posiA c_needKnowMessageText f26" title="">
+					<strong>流程与规则</strong><br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/><br/>
+					<strong>奖励机制</strong><br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+					<br/> 1.海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈海海啊哈哈
+				</div>
+				<div class="posiA c_needKnowMessageBtn f30 fb" onclick="i18n.message.hide('.c_needKnowMessage')">已阅读</div>
+			</div>
+		</div>
+		<!-- 填写身份弹窗-->
+		<div class="c_idInfoMessage dn">
+			<div class="c_exchangeMessageContent c_fff">
+				<img class="c_exchangeMessageClose" src="static/game-line/close.png" onclick="i18n.message.hide('.c_idInfoMessage')" />
+				<div class="wd100 texC f38 fb mt130" title="">您的身份是：</div>
+				<div class="c_idInfoSelect c_whiteOpacityBtn texC f36 fb m0 mt90 posiR" title="1">
+					<div class="c_whiteOpacityBtnChild">ALCON销售</div>
+					<img class="posiA" src="static/game-line/select1.png" />
+				</div>
+				<div class="c_idInfoSelect c_whiteOpacityBtn texC f36 fb m0 mt36 posiR" title="2">
+					<div class="c_whiteOpacityBtnChild">ECP</div>
+					<img class="posiA" src="static/game-line/select0.png" />
+				</div>
+				<div class="c_idInfoMessageBtn c_blueBtn f46 fb mt82" title="1">确定</div>
+			</div>
+		</div>
+		<!-- 选择区域信息弹窗-->
+		<div class="c_areafoMessage dn">
+			<div class="c_exchangeMessageContent c_fff">
+				<img class="c_exchangeMessageClose" src="static/game-line/close.png" onclick="i18n.message.hide('.c_areafoMessage')" />
+				<div class="c_areaItem flex flexJustifyC f32 fb mt150 mb36">
+					<div class="c_areaItemL texC">大区</div>
+					<select class="c_areaItemR c_whiteOpacityBtn texC f36 fb" title="area" style="width: 2.8rem;">
+						<option class="c_whiteOpacityBtnChild" value="南区1">南区1</option>
+						<option class="c_whiteOpacityBtnChild" value="南区2">南区2</option>
+						<option class="c_whiteOpacityBtnChild" value="南区3">南区3</option>
+					</select>
+				</div>
+				<div class="c_areaItem flex flexJustifyC f32 fb mb36">
+					<div class="c_areaItemL texC">省份</div>
+					<select class="c_areaItemR c_whiteOpacityBtn texC f36 fb" title="area" style="width: 2.8rem;">
+						<option class="c_whiteOpacityBtnChild" value="上海">上海</option>
+						<option class="c_whiteOpacityBtnChild" value="上海">上海</option>
+						<option class="c_whiteOpacityBtnChild" value="上海">上海</option>
+					</select>
+				</div>
+				<div class="c_areaItem flex flexJustifyC f32 fb mb36">
+					<div class="c_areaItemL texC">经理</div>
+					<select class="c_areaItemR c_whiteOpacityBtn texC f36 fb" title="area" style="width: 2.8rem;">
+						<option class="c_whiteOpacityBtnChild" value="小甜豆">小甜豆</option>
+						<option class="c_whiteOpacityBtnChild" value="小甜豆">小甜豆</option>
+						<option class="c_whiteOpacityBtnChild" value="小甜豆">小甜豆</option>
+					</select>
+				</div>
+				<div class="c_areaItem flex flexJustifyC f32 fb mb36">
+					<div class="c_areaItemL texC">团队人数</div>
+					<select class="c_areaItemR c_whiteOpacityBtn texC f36 fb" title="area" style="width: 2.8rem;">
+						<option class="c_whiteOpacityBtnChild" value="10人">10人</option>
+						<option class="c_whiteOpacityBtnChild" value="20人">20人</option>
+						<option class="c_whiteOpacityBtnChild" value="30人">30人</option>
+					</select>
+				</div>
+				<div class="c_areafoMessageBtn c_blueBtn f46 fb mt56">确定</div>
+			</div>
+		</div>
+		<!--邀请好友pk弹窗-->
+		<div class="c_invitePkMessage dn">
+			<div class="c_exchangeMessageBj" onclick="i18n.message.hide('.c_invitePkMessage')"></div>
+			<div class="c_exchangeMessageContent c_fff">
+				<img class="db posiA" style="width: 3rem; left: 1.75rem; top: -0.2rem; z-index: 2;" src="static/game-line/inviteIcon.png" />
+				<!--<img class="db m0 posiR" style="width: 6.3rem; top: -0.2rem;" src="static/game-line/shareLight.png" />-->
+				<div class="posiR">
+					<img class="db m0" style="width: 2.34rem; margin-top: 1.86rem;" src="static/pk/win.png" />
+					<img class="db posiA" style="width: 6.3rem; left: 50%; top: 50%; z-index: -1; transform: translate(-50%, -50%);" src="static/pk/lightBj.png" />
+				</div>
+				<div class="f32 fb m0 texC mt52 wd100">
+					<div>邀请好友</div>
+					<div class="mt6">进行PK</div>
+				</div>
+				<div class="c_invitePkMessageBtn c_blueBtn f46 fb" style="width: 2.6rem; margin-top: 0.48rem;">立即邀请</div>
+			</div>
+		</div>
+		<!--邀请好友pk成功弹窗-->
+		<div class="c_invitePkSuccessMessage dn c_fff">
+			<div class="c_invitePkSuccessHeader flex flexAlignC f30 c_fff mt40">
+				<img class="c_invitePkSuccessGoBack" src="static/pk/back.png" style="width: 0.24rem; padding: 0.2rem 0.24rem 0.2rem 0.4rem;" onclick="i18n.message.hide('.c_invitePkSuccessMessage')" />
+				<div class="flexGrow1">小甜豆...</div>
+				<img src="static/pk/share.png" style="width: 0.34rem; padding: 0.2rem 0.5rem;" />
+			</div>
+			<div class="c_pkVsBox posiR mt30">
+				<div class="posiR">
+					<div class="f32 posiA" style="left: 1.5rem; top: 0.02rem;">小甜豆</div>
+					<div class="f32 posiA texC" style="width: 1.12rem; left: 0.28rem; bottom: 0.02rem;">ECP</div>
+					<div class="f70 fb posiA texC" style="width: 1.86rem; left: 1.8rem; bottom: 0.1rem;">100</div>
+					<img class="c_pkL" src="static/game-line/pkL.png" />
+				</div>
+				<img class="c_pkVs posiA mt28" src="static/game-line/vs1.png" />
+				<div class="posiR flex flexEnd mt140" style="height: 1.62rem;">
+					<div class="f32 posiA" style="right: 1.5rem; top: 0.02rem;">小豆豆</div>
+					<div class="f32 posiA texC" style="width: 1.12rem; right: 0.28rem; bottom: 0.02rem;">ECP</div>
+					<div class="f70 fb posiA texC" style="width: 1.86rem; right: 1.8rem; bottom: 0.1rem;">100</div>
+					<img class="c_pkR" src="static/game-line/pkR.png" />
+				</div>
+			</div>
+			<div class="posiR">
+				<img class="db m0" style="width: 2.34rem; margin-top: 0.86rem;" src="static/pk/win.png" />
+				<img class="db posiA" style="width: 6.3rem; left: 50%; top: 50%; z-index: -1; transform: translate(-50%, -50%);" src="static/pk/lightBj.png" />
+			</div>
+			<div class="f32 fb m0 texC mt82 wd100">
+				<div class="f60 fb c_pkCountTime">3</div>
+				<div>恭喜你！</div>
+				<div class="mt6">好友邀请成功</div>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="lib/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="lib/comon.js"></script>
+	<script>
+		setTimeout(function() {
+			window.scrollTo(0, 10000);
+		}, 100);
+
+		$('.c_goBack').click(function() {
+			history.back();
+		});
+
+		$('.c_exchange').click(function() {
+			i18n.message.show('.c_exchangeMessage')
+			$('.c_exchangeMessageBtn').html('立即兑换');
+			$('.c_peaboxVal').html(477); //豆子总数
+			$('.c_peaMoneyValL').html(20); //豆子
+			$('.c_peaMoneyValR').html(20); //金币
+			$('.c_exchangeRate')[0].style.display = 'block';
+			$('.c_exchangeAgainTxt')[0].style.display = 'none';
+		});
+
+		//立即兑换
+		$('.c_exchangeMessageBtn').click(function() {
+			//兑换成功
+			if(true) {
+				$('.c_exchangeRate')[0].style.display = 'none';
+				$('.c_exchangeAgainTxt')[0].style.display = 'block';
+				this.innerHTML = '继续兑换';
+			}
+		});
+
+		//身份信息单选框模块
+		$('.c_idInfoSelect').click(function() {
+			var itemDom = $('.c_idInfoSelect img');
+			if(this.title == '1') {
+				itemDom[0].setAttribute('src', 'static/game-line/select1.png');
+				itemDom[1].setAttribute('src', 'static/game-line/select0.png');
+			} else {
+				itemDom[0].setAttribute('src', 'static/game-line/select0.png');
+				itemDom[1].setAttribute('src', 'static/game-line/select1.png');
+			}
+			$('.c_idInfoMessageBtn')[0].setAttribute('title', this.title);
+		})
+		
+		$('.c_idInfoMessageBtn').click(function() {
+			//this.title -- 选中的值 1 ALCON销售  ，2 ECP
+			i18n.message.hide('.c_idInfoMessage');
+			i18n.message.show('.c_areafoMessage');
+		});
+
+		//地区选择模块
+//		i18n.message.show('.c_areafoMessage');
+		$('.c_areafoMessageBtn').click(function() {
+			//this.title -- 选中的值 1 ALCON销售  ，2 ECP
+			i18n.message.hide('.c_areafoMessage');
+		});
+
+		//邀请好友pk弹窗，立即邀请按钮
+		$('#c_gameLine').on('click', '.c_levelBtn', function() {
+			i18n.message.show('.c_invitePkMessage')
+		});
+
+		//邀请好友pk弹窗，立即邀请按钮
+		$('.c_invitePkMessageBtn').click(function() {
+			i18n.message.hide('.c_invitePkMessage')
+		});
+
+		//邀请好友失败弹窗
+		i18n.message.dialog({
+			title: '抱歉<br /> 您的好友正在对战',
+			complete: function(res) {
+				console.log(res)
+				if(res == 'sure') { //点击右边确定按钮
+
+				}
+			}
+		});
+
+		//邀请好友pk成功弹窗
+		function showInvitePkSuccessMessage() {
+			i18n.message.show('.c_invitePkSuccessMessage');
+			var count = 3;
+			var pkCountTimeDom = $('.c_pkCountTime');
+			pkCountTimeDom.html(count--);
+			var tempTime = setInterval(function() {
+				if(count == 0) {
+					i18n.message.hide('.c_invitePkSuccessMessage');
+					location.href = './pk.html';
+					clearInterval(tempTime);
+				}
+				pkCountTimeDom.html(count--);
+			}, 1000);
+		}
+		showInvitePkSuccessMessage();
+
+		//关卡模块
+		var hadLevel = 0; //用户已答题等级
+
+		//生成关卡按钮
+		function createLevelBtn(param) {
+			param = param || {
+				point: ['', ''],
+				level: '1'
+			}
+			var left = param.point[0];
+			var top = param.point[1];
+			var level = param.level;
+			var icon = '';
+			var num = level;
+			var color = '';
+			if(level <= 2) {
+				num = '';
+				icon = 'static/game-line/10L.png';
+			} else if(level <= 4) {
+				num = '';
+				icon = 'static/game-line/10R.png';
+			} else if(level <= 10) {
+				color = 'rgb(139, 222, 242)';
+				icon = 'static/game-line/10num.png';
+			} else if(level <= 12) {
+				num = '';
+				icon = 'static/game-line/20.png';
+			} else if(level <= 20) {
+				color = 'rgb(143, 112, 174)';
+				icon = 'static/game-line/20num.png';
+			} else if(level <= 22) {
+				num = '';
+				icon = 'static/game-line/35.png';
+			} else if(level <= 35) {
+				color = 'rgb(241, 155, 158)';
+				icon = 'static/game-line/35num.png';
+			} else if(level <= 37) {
+				num = '';
+				icon = 'static/game-line/50.png';
+			} else if(level <= 50) {
+				color = 'rgb(128, 134, 192)';
+				icon = 'static/game-line/50num.png';
+			}
+			//已答过的关卡
+			if(hadLevel >= level) {
+				num = '';
+				if(level <= 10) {
+					icon = 'static/game-line/10f.png';
+				} else if(level <= 20) {
+					icon = 'static/game-line/20f.png';
+				} else if(level <= 35) {
+					icon = 'static/game-line/35f.png';
+				} else if(level <= 50) {
+					icon = 'static/game-line/50f.png';
+				}
+			}
+			var str = '<div class="c_levelBtn" style="background-image: url(' + icon + ');left:' + left + ';top:' + top + ';">';
+			if(num) {
+				str += '<div style="color:' + color + ';">' + num + '</div>';
+			}
+			str += '</div>';
+			$('#c_gameLine').append(str)
+		}
+
+		var points = [{
+			point: ['3.26rem', '20.96rem'],
+			level: '1'
+		}, {
+			point: ['2rem', '20.86rem'],
+			level: '2'
+		}, {
+			point: ['1.64rem', '19.76rem'],
+			level: '3'
+		}, {
+			point: ['2.88rem', '19.4rem'],
+			level: '4'
+		}, {
+			point: ['4.12rem', '19.22rem'],
+			level: '5'
+		}, {
+			point: ['5.5rem', '18.96rem'],
+			level: '6'
+		}, {
+			point: ['6.36rem', '18rem'],
+			level: '7'
+		}, {
+			point: ['5.3rem', '17.32rem'],
+			level: '8'
+		}, {
+			point: ['3.96rem', '17.62rem'],
+			level: '9'
+		}, {
+			point: ['2.76rem', '17.96rem'],
+			level: '10'
+		}, {
+			point: ['1.36rem', '17.8rem'],
+			level: '11'
+		}, {
+			point: ['0.38rem', '16.96rem'],
+			level: '12'
+		}, {
+			point: ['1.42rem', '16.36rem'],
+			level: '13'
+		}, {
+			point: ['2.78rem', '16.26rem'],
+			level: '14'
+		}, {
+			point: ['4.02rem', '16.26rem'],
+			level: '15'
+		}, {
+			point: ['5.34rem', '15.82rem'],
+			level: '16'
+		}, {
+			point: ['6.2rem', '14.9rem'],
+			level: '17'
+		}, {
+			point: ['5.8rem', '13.86rem'],
+			level: '18'
+		}, {
+			point: ['4.56rem', '14.16rem'],
+			level: '19'
+		}, {
+			point: ['3.32rem', '14.72rem'],
+			level: '20'
+		}, {
+			point: ['2.06rem', '15rem'],
+			level: '21'
+		}, {
+			point: ['0.64rem', '14.96rem'],
+			level: '22'
+		}, {
+			point: ['0.96rem', '13.76rem'],
+			level: '23'
+		}, {
+			point: ['2.32rem', '13.34rem'],
+			level: '24'
+		}, {
+			point: ['3.7rem', '12.98rem'],
+			level: '25'
+		}, {
+			point: ['4.9rem', '12.5rem'],
+			level: '26'
+		}, {
+			point: ['5.9rem', '11.62rem'],
+			level: '27'
+		}, {
+			point: ['4.92rem', '11.16rem'],
+			level: '28'
+		}, {
+			point: ['3.66rem', '11.42rem'],
+			level: '29'
+		}, {
+			point: ['3.8rem', '10.18rem'],
+			level: '30'
+		}, {
+			point: ['4.72rem', '9.28rem'],
+			level: '31'
+		}, {
+			point: ['5.52rem', '8.2rem'],
+			level: '32'
+		}, {
+			point: ['5.86rem', '6.96rem'],
+			level: '33'
+		}, {
+			point: ['4.78rem', '6.42rem'],
+			level: '34'
+		}, {
+			point: ['3.96rem', '7.52rem'],
+			level: '35'
+		}, {
+			point: ['3.12rem', '8.46rem'],
+			level: '36'
+		}, {
+			point: ['2.1rem', '9.12rem'],
+			level: '37'
+		}, {
+			point: ['1rem', '8.7rem'],
+			level: '38'
+		}, {
+			point: ['1.72rem', '7.76rem'],
+			level: '39'
+		}, {
+			point: ['2.66rem', '6.86rem'],
+			level: '40'
+		}, {
+			point: ['3.56rem', '5.98rem'],
+			level: '41'
+		}, {
+			point: ['3.56rem', '4.76rem'],
+			level: '42'
+		}, {
+			point: ['2.4rem', '5.1rem'],
+			level: '43'
+		}, {
+			point: ['1.56rem', '6.06rem'],
+			level: '44'
+		}, {
+			point: ['0.46rem', '5.96rem'],
+			level: '45'
+		}, {
+			point: ['0.86rem', '4.86rem'],
+			level: '46'
+		}, {
+			point: ['2.1rem', '4.2rem'],
+			level: '47'
+		}, {
+			point: ['3.3rem', '3.64rem'],
+			level: '48'
+		}, {
+			point: ['3.26rem', '2.46rem'],
+			level: '49'
+		}, {
+			point: ['2rem', '2.08rem'],
+			level: '50'
+		}]
+
+		for(var i = 0; i < points.length; i++) {
+			createLevelBtn(points[i]);
+		}
+	</script>
+
+</html>
